@@ -10,29 +10,29 @@ This guide to using feature flag systems at scale is based on lessons learned wo
 
 This guide is organized into three sections that align with the stages of a large-scale feature flag rollout:
 
--   [Organizing your team and internal processes to support feature flags](#organizing-your-team-and-internal-processes-to-support-feature-flags)
-    -   [1. Align feature flags with organizational and application design.](#1-align-feature-flags-with-organizational-and-application-design)
-    -   [2. Make flags searchable globally.](#2-make-flags-searchable-globally)
-    -   [3. Design for flag permissions to change over time.](#3-design-for-flag-permissions-to-change-over-time)
-    -   [4. Get flag management permissions right. And audit everything.](#4-get-flag-management-permissions-right-and-audit-everything)
-    -   [5. Base flag permissions on global permissions.](#5-base-flag-permissions-on-global-permissions)
-    -   [6. Implement flag approval workflows early.](#6-implement-flag-approval-workflows-early)
--   [Instrumenting your code and managing flag lifecycle](#instrumenting-your-code-and-managing-flag-lifecycle)
-    -   [7. Define flags in your code at the highest level of abstraction.](#7-define-flags-in-your-code-at-the-highest-level-of-abstraction)
-    -   [8. Evaluate a feature flag only once.](#8-evaluate-a-feature-flag-only-once)
-    -   [9. Continually pay down feature flag tech debt.](#9-continually-pay-down-feature-flag-tech-debt)
-    -   [10. Leverage flag lifecycles to optimize your development](#10-leverage-flag-lifecycles-to-optimize-your-development)
--   [Common pitfalls to avoid when implementing flags at scale](#common-pitfalls-to-avoid-when-implementing-flags-at-scale)
-    -   [11. Avoid feature flag parent-child dependencies.](#11-avoid-feature-flag-parent-child-dependencies)
-    -   [12. Don’t use flags to manage configuration.](#12-dont-use-flags-to-manage-configuration)
-    -   [13. Never reuse feature flag names.](#13-never-reuse-feature-flag-names)
-    -   [14. Avoid giant feature flag targeting lists.](#14-avoid-giant-feature-flag-targeting-lists)
-    -   [15. Do not define business logic using feature flags.](#15-do-not-define-business-logic-using-feature-flags)
-        -   [Dependency on 3rd party services](#dependency-on-3rd-party-services)
-        -   [Complexity and Maintainability](#complexity-and-maintainability)
-        -   [Performance Implications](#performance-implications)
-        -   [Security Risks](#security-risks)
--   [Keeping cool while managing feature flags at scale](#keeping-cool-while-managing-feature-flags-at-scale)
+- [Organizing your team and internal processes to support feature flags](#organizing-your-team-and-internal-processes-to-support-feature-flags)
+  - [1. Align feature flags with organizational and application design.](#1-align-feature-flags-with-organizational-and-application-design)
+  - [2. Make flags searchable globally.](#2-make-flags-searchable-globally)
+  - [3. Design for flag permissions to change over time.](#3-design-for-flag-permissions-to-change-over-time)
+  - [4. Get flag management permissions right. And audit everything.](#4-get-flag-management-permissions-right-and-audit-everything)
+  - [5. Base flag permissions on global permissions.](#5-base-flag-permissions-on-global-permissions)
+  - [6. Implement flag approval workflows early.](#6-implement-flag-approval-workflows-early)
+- [Instrumenting your code and managing flag lifecycle](#instrumenting-your-code-and-managing-flag-lifecycle)
+  - [7. Define flags in your code at the highest level of abstraction.](#7-define-flags-in-your-code-at-the-highest-level-of-abstraction)
+  - [8. Evaluate a feature flag only once.](#8-evaluate-a-feature-flag-only-once)
+  - [9. Continually pay down feature flag tech debt.](#9-continually-pay-down-feature-flag-tech-debt)
+  - [10. Leverage flag lifecycles to optimize your development](#10-leverage-flag-lifecycles-to-optimize-your-development)
+- [Common pitfalls to avoid when implementing flags at scale](#common-pitfalls-to-avoid-when-implementing-flags-at-scale)
+  - [11. Avoid feature flag parent-child dependencies.](#11-avoid-feature-flag-parent-child-dependencies)
+  - [12. Don’t use flags to manage configuration.](#12-dont-use-flags-to-manage-configuration)
+  - [13. Never reuse feature flag names.](#13-never-reuse-feature-flag-names)
+  - [14. Avoid giant feature flag targeting lists.](#14-avoid-giant-feature-flag-targeting-lists)
+  - [15. Do not define business logic using feature flags.](#15-do-not-define-business-logic-using-feature-flags)
+    - [Dependency on 3rd party services](#dependency-on-3rd-party-services)
+    - [Complexity and Maintainability](#complexity-and-maintainability)
+    - [Performance Implications](#performance-implications)
+    - [Security Risks](#security-risks)
+- [Keeping cool while managing feature flags at scale](#keeping-cool-while-managing-feature-flags-at-scale)
 
 ## Organizing your team and internal processes to support feature flags
 
@@ -44,7 +44,7 @@ Before you add your first feature flag, you need to think about how organization
 
 – Melvin Conway
 
-<Figure img="/img/feature-flag-organization-methods.svg" caption="In situtations where predefined teams own a feature from start to finish, it makes sense to create a project for each team. In situtations where you have dynamic teams that form around feature work, you might instead want to create smaller projects for each feature, only giving access to the people who work on that feature."/>
+<Figure img="/img/feature-flag-organization-methods.svg" caption="In situations where predefined teams own a feature from start to finish, it makes sense to create a project for each team. In situations where you have dynamic teams that form around feature work, you might instead want to create smaller projects for each feature, only giving access to the people who work on that feature."/>
 
 There is no getting around [Conway’s law](https://martinfowler.com/bliki/ConwaysLaw.html). Applications tend to resemble the organizations that create them, and your feature flag system is no exception. Rather than fighting this law, acknowledge and embrace it, and pick a way to organize your feature flags that reflects your organization.
 
@@ -60,7 +60,7 @@ In an organization that actively uses feature flags, there will invariably be a 
 
 Removing information and updates you don’t care about makes the things you care about stand out that much more.
 
-**Example**: Do all members of Team A need updates on Project X, even if only one member of Team A is working on it? If so, include all team members in Project X’s group. Otherwise, only include the member who works on project X.
+**Example**: Do all members of Team A need updates on Project X, even if only one member of Team A is working on it? If so, include all team members in Project X’s group. Otherwise, only include the member who works on Project X.
 
 ### 2. Make flags searchable globally.
 
@@ -82,7 +82,7 @@ If the feature is a simple improvement, the change can likely be incrementally r
 
 However, if the feature rollout has certain requirements, it’s quite likely that the developer doesn’t have the entire context that they need. As such, the ownership is now shared between the developer and a product owner. In cases like this, the developer may be in charge of the main switch, enabling or disabling the feature so that they can turn it off if something goes wrong. However, the product owner might decide what targeting strategies to use, such as how many users to roll the feature out to.
 
-This is also often the case for B2B companies where specific customers request certain functionality. A Customer Success Manager will often have better insight into to whom to roll out a new feature first.
+This is also often the case for B2B companies where specific customers request certain functionality. A Customer Success Manager will often have better insight into whom to roll out a new feature first.
 
 To be clear, the developers should still be kept in the loop (after all, when was the last time your Customer Success Managers checked system logs?). However, the flags are now a shared responsibility, and other team members should be given the power and responsibility to make the changes they want to see.
 
@@ -122,7 +122,7 @@ Equally important is auditing all of these permissions and changes. As such, kno
 
 Your organization has already established some notions of groups. Leverage that for your feature flag system permissions.
 
-These might be groups based on roles (such as developers, operations, marketing, etc.), or business units, or both.
+These might be groups based on roles (such as developers, operations, marketing, etc.), business units, or both.
 
 These groups should be mirrored in your feature flag system to help you organize your users and access rights. Your system should be set up to sync with SSO providers to make this process as painless as possible.
 
@@ -130,7 +130,7 @@ Users who are added or removed from your main SSO directory should be added or r
 
 ### 6. Implement flag approval workflows early.
 
-<Figure img="/img/change-request-flow.png" caption="Some changes require approval processes. Those processes will tend to let a reviewer approve or reject the proposed changes before someone with the required permissons can apply the changes."/>
+<Figure img="/img/change-request-flow.png" caption="Some changes require approval processes. Those processes will tend to let a reviewer approve or reject the proposed changes before someone with the required permissions can apply the changes."/>
 
 Depending on the industry and legal framework you’re operating in, you’ll need varying approvals for a feature flag change to go into production. You may be able to just roll something out on a whim, or you might need to get it approved by specific stakeholders before releasing it. Your feature flag tool should help you do this, regardless of how much oversight you need.
 
@@ -199,7 +199,7 @@ We find that companies are usually more successful when using feature flags when
 
 ### 9. Continually pay down feature flag tech debt.
 
-We love feature flags for the way that they increase developer productivity, reduce risk and enable data-driven product development. But feature flags are also technical debt. How can both be true? The answer lies not with flags but with how they are managed.
+We love feature flags for the way that they increase developer productivity, reduce risk, and enable data-driven product development. But feature flags are also technical debt. How can both be true? The answer lies not with flags but with how they are managed.
 
 Feature flag technical debt accumulates when feature flags are not properly managed or retired after their intended use. Over time, the codebase becomes cluttered with outdated or unnecessary flags, making the code more complex and harder to maintain. This increased complexity can slow development productivity as developers spend more time understanding and navigating the code. Additionally, neglected feature flags can introduce security vulnerabilities if they unintentionally expose sensitive features or data. Furthermore, the presence of stale or conflicting feature flags can lead to unexpected app behaviors, increasing the risk of downtime and affecting overall application stability. Managing feature flags effectively minimizes these risks and maintains a healthy development workflow.
 
@@ -313,13 +313,13 @@ In our experience, since feature flags reduce the friction of releasing software
 
 Here is a good rule of thumb: Experiment with business logic using feature flags. But once you have established the business logic, codify it in code that lives outside of a flag.
 
-For example, if you want to determine whether premium users of your product will use a certain new feature, you can wrap it in a flag and measure the result. Once you have determined that premium users do use the feature, and that all premium users should have access to it, however, you should remove the flag and add the feature to your entitlement service.
+For example, if you want to determine whether premium users of your product will use a certain new feature, you can wrap it in a flag and measure the result. If you find that premium users do use the feature and want to make it available to all of them, you should remove the flag and add the feature to your entitlement service.
 
 If feature flags are so great, why shouldn’t you use them for business logic? A few reasons:
 
 #### Dependency on 3rd party services
 
-Coming from a feature flag vendor, it might surprise you that we do not advocate making core business logic dependent on a 3rd party feature flag service. If that flag service is down, then your app could potentially cease to function in the way designed. This applies to using 3rd party feature flag services, as well as home grown feature flags service.
+Coming from a feature flag vendor, it might surprise you that we do not advocate making core business logic dependent on a 3rd party feature flag service. If that flag service is down, then your app could potentially cease to function in the way designed. This applies to using third-party feature flag services, as well as homegrown feature flags services.
 
 #### Complexity and Maintainability
 

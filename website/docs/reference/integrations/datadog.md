@@ -5,18 +5,18 @@ title: Datadog
 
 > This feature was introduced in _Unleash v4.0.0_.
 
-The Datadog integration allows Unleash to post Updates to Datadog when a feature flag is updated. To set up this integration, you need to set up a webhook connector for your channel. You can follow [Submitting events to Datadog](https://docs.datadoghq.com/api/latest/events/#post-an-event) on how to do that.
+The Datadog integration allows Unleash to post updates to Datadog when a feature flag is updated. To set up this integration, you need to set up a webhook connector for your channel. You can follow [Submitting events to Datadog](https://docs.datadoghq.com/api/latest/events/#post-an-event) on how to do that.
 
-The Datadog integration will perform a single retry if the HTTP POST against the Datadog Webhook URL fails (either a 50x or network error). Duplicate events may happen, and you should never assume events always comes in order.
+The Datadog integration performs a single retry if the HTTP POST against the Datadog Webhook URL fails due to a 50x or a network issue. As a result, duplicate events may occur, and you should not assume that events always arrive in order.
 
-## Configuration {#configuration}
+## Configuration
 
-#### Events {#events}
+#### Events
 
 You can choose to trigger updates for the following events:
 
 - feature-created
-- feature-updated (*)
+- feature-updated (deprecated after Unleash v4.3)
 - feature-metadata-updated
 - feature-project-change
 - feature-archived
@@ -31,13 +31,11 @@ You can choose to trigger updates for the following events:
 - feature-environment-variants-updated
 - feature-potentially-stale-on
 
-> *) Deprecated, and will not be used after transition to environments in Unleash v4.3
-
-#### Parameters {#parameters}
+#### Parameters
 
 Unleash Datadog integration takes the following parameters.
 
-- **Datadog Events URL** - This is an optional property. The default URL is https://api.datadoghq.com/api/v1/events. If you are not not using the US1 [Datadog site](https://docs.datadoghq.com/getting_started/site/), you'll need to change this. Some instances and their URLs are:
+- **Datadog Events URL** - This is an optional property. The default URL is https://api.datadoghq.com/api/v1/events. If you are not using the US1 [Datadog site](https://docs.datadoghq.com/getting_started/site/), you'll need to change this. Some instances and their URLs are:
   - EU: https://app.datadoghq.eu/api/v1/events
   - US1: https://app.datadoghq.com/api/v1/events
   - US3: https://us3.datadoghq.com/api/v1/events
@@ -86,6 +84,6 @@ Example:
 username created feature flag (featurename)[http://your.url/projects/projectname/features/featurename] in project *projectname*
 ```
 
-#### Tags {#tags}
+#### Tags
 
-Datadog's incoming webhooks are app specific. You will be able to create multiple integrations to support messaging on different apps.
+Datadog's incoming webhooks are application-specific. You will be able to create multiple integrations to support messaging on different apps.

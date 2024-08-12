@@ -13,16 +13,16 @@ This Slack integration is deprecated and will be removed in a future release. We
 
 The Slack integration allows Unleash to post Updates when a feature flag is updated. To set up Slack, you need to configure an incoming Slack webhook URL. You can follow [Sending messages using Incoming Webhooks](https://api.slack.com/incoming-webhooks) on how to do that. You can also choose to [create a slack app for Unleash](https://api.slack.com/apps), which will provide you with additional functionality to control how Unleash communicates messages on your Slack workspace.
 
-The Slack integration will perform a single retry if the HTTP POST against the Slack Webhook URL fails (either a 50x or network error). Duplicate events may happen. You should never assume events always comes in order.
+The Slack integration performs a single retry if the HTTP POST against the Slack Webhook URL fails due to a 50x or a network issue. As a result, duplicate events may occur, and you should not assume that events always arrive in order.
 
-## Configuration {#configuration}
+## Configuration
 
-#### Events {#events}
+#### Events
 
 You can choose to trigger updates for the following events:
 
 - feature-created
-- feature-updated (*)
+- feature-updated (deprecated after Unleash v4.3)
 - feature-metadata-updated
 - feature-project-change
 - feature-archived
@@ -35,9 +35,7 @@ You can choose to trigger updates for the following events:
 - feature-environment-enabled
 - feature-environment-disabled
 
-> *) Deprecated, and will not be used after transition to environments in Unleash v4.3
-
-#### Parameters {#parameters}
+#### Parameters
 
 Unleash Slack integration takes the following parameters.
 
@@ -50,8 +48,7 @@ Unleash Slack integration takes the following parameters.
 
 - **Unleash URL** - The slack plugin uses the `server.unleashUrl` property to create the link back to Unleash in the posts. This can be set using the **UNLEASH_URL** environment variable or the `server.unleashUrl` property when starting the server from node.
 
-#### Tags {#tags}
-
+#### Tags
 The Slack integration also defined the Tag type "slack". You may use this tag to override which Slack channel Unleash should post updates to for this feature flag.
 
 ![Slack Tags](/img/slack-addon-tags.png)

@@ -4,13 +4,13 @@ title: '[Deprecated] How to add SSO with Google'
 
 :::caution Deprecation notice
 
-Single Sign-on via the Google Authenticator provider has been removed in Unleash v5 (deprecated in v4). We recommend using [OpenID Connect](./how-to-add-sso-open-id-connect.md) instead. If you're running a self hosted version of Unleash and you need to temporarily re-enable Google SSO, you can do so by setting the `GOOGLE_AUTH_ENABLED` environment variable to `true`. If you're running a hosted version of Unleash, you'll need to reach out to us and ask us to re-enable the flag. Note that this code will be removed in a future release and this is not safe to depend on.
+Single Sign-on via the Google Authenticator provider has been removed in Unleash v5 (deprecated in v4). We recommend using [OpenID Connect](./how-to-add-sso-open-id-connect.md) instead. If you're running a self-hosted version of Unleash and you need to temporarily re-enable Google SSO, you can do so by setting the `GOOGLE_AUTH_ENABLED` environment variable to `true`. If you're running a hosted version of Unleash, you'll need to reach out to us and ask us to re-enable the flag. Note that this code will be removed in a future release and this is not safe to depend on.
 
 :::
 
-## Introduction {#introduction}
+## Introduction
 
-In this guide we will do a deep dive on the Single-Sign-On (SSO) using Google Authentication. Unleash supports other identity providers and protocols, have a look at [all available Single-Sign-On options](../reference/sso.md)
+This guide provides a deep dive on the Single-Sign-On (SSO) using Google Authentication. Unleash supports other identity providers and protocols; explore [all available Single-Sign-On options](../reference/sso.md)
 
 ## Basic configuration
 

@@ -8,17 +8,23 @@ This guide outlines Best Practices for feature flag migrations. Approaching the 
 
 Based on our work with organizations having millions of flags and thousands of users, there are five phases of a feature flag migration:
 
-1.  [Defining the scope of the feature flag migration](#defining-the-scope-of-the-feature-flag-migration)
-2.  [Make the business case for feature flag migration](#make-the-business-case-for-feature-flag-migration)
-3.  [Planning Feature Flag Migration](#planning-feature-flag-migration)
-4.  [Migration Execution](#migration-execution)
-5.  [Onboarding users](#onboarding-users)
+- [Defining the scope of the feature flag migration](#defining-the-scope-of-the-feature-flag-migration)
+  - [1- Separate the migration of old flags from the existing system from new flags created in Unleash.](#1--separate-the-migration-of-old-flags-from-the-existing-system-from-new-flags-created-in-unleash)
+  - [2- Do not make end-to-end app modernization a dependency of your feature flag migration](#2--do-not-make-end-to-end-app-modernization-a-dependency-of-your-feature-flag-migration)
+- [Make the business case for feature flag migration](#make-the-business-case-for-feature-flag-migration)
+- [Planning Feature Flag Migration](#planning-feature-flag-migration)
+  - [Use Cases](#use-cases)
+  - [Key stakeholders](#key-stakeholders)
+  - [How is our current feature flag architecture set up?](#how-is-our-current-feature-flag-architecture-set-up)
+  - [Security and organizational policy requirements](#security-and-organizational-policy-requirements)
+- [Migration Execution](#migration-execution)
+- [Onboarding users](#onboarding-users)
 
 This guide provides a summary of each topic as well as a detailed [Feature Flag Migration template](https://docs.google.com/spreadsheets/d/1MKc95v7Tc-9tznWMDVSy2vvmVJTvOFLRVZpx1QrL-_U/edit#gid=996250264) that you can use to plan your migration.
 
 ## Defining the scope of the feature flag migration
 
-Scoping a feature flag migration properly is the most significant task you can do to ensure the success of your project.
+Scoping a feature flag migration accurately is the most significant task you can do to ensure the success of your project.
 
 Based on experiences working with dozens of large enterprises migrating homegrown systems to Unleash, we recommend two best practices when scoping your feature flag migration.
 
@@ -36,7 +42,7 @@ In parallel, the second track:
 
 ### 2- Do not make end-to-end app modernization a dependency of your feature flag migration
 
-Organizations who adopt feature flags see improvements in all key operational metrics for DevOps: Lead time to changes, mean-time-to-recovery, deployment frequency, and change failure rate. So it is natural as part of a feature flag migration to also improve other parts of the software development lifecycle. From the perspective of feature flag migration, this is a mistake.
+Organizations that adopt feature flags see improvements in all key operational metrics for DevOps: Lead time to changes, mean-time-to-recovery, deployment frequency, and change failure rate. So it is natural as part of a feature flag migration to also improve other parts of the software development lifecycle. From the perspective of feature flag migration, this is a mistake.
 
 Making feature flag migration dependent on breaking down mission-critical monolithic applications into microservices, for example, will slow down your feature flag migration.
 
@@ -46,14 +52,14 @@ If you're using our [template](https://docs.google.com/spreadsheets/d/1MKc95v7Tc
 
 ## Make the business case for feature flag migration
 
-Once you have scoped your migration, you need to make a business case. Even the most well planned migrations take effort, meaning time, money, and energy dedicated to a project. If you don’t have the proper buy-in, you risk being under-resourced or worse, being unable to complete the migration at all.
+Once you have scoped your migration, you need to make a business case. Even the most well-planned migrations take effort, meaning time, money, and energy dedicated to a project. If you don’t have the proper buy-in, you risk being under-resourced or worse, being unable to complete the migration at all.
 
 When building a business case, you want to be clear on what pain the feature flag migration is solving and the happy end state once the migration is complete.
 
 To structure your thinking, ask yourself:
 
 -   What practices related to feature deployments, debugging and rollbacks are overburdening teams today and driving down productivity?
--   What specific deficiencies are there in the current platform
+-   What specific deficiencies are there in the current platform?
 -   What business outcomes are you looking to drive?
 -   After the migration, what does "better" look like?
 
@@ -116,7 +122,7 @@ You will also need to plan how you set up Unleash itself as part of your migrati
 
 This part is key to understanding how Unleash needs to be implemented. This plays a part in resource planning for both personnel and infrastructure cost allocation. For instance
 
--   What languages and frameworks are our front end and backend using?
+-   What languages and frameworks are our frontend and backend using?
 -   Where are our applications hosted?
 -   Where are end users of the application based geographically?
 
@@ -128,7 +134,7 @@ For example, do you need to keep sensitive context inside your firewall perimete
 
 Often the answer to this question defines whether you will run Unleash in a hosted, or self-hosted fashion.
 
-Many customers prefer a hosted solution if their security policy will allow it because it reduces overhead on SRE teams and infrastructure. Unleash offers a single-tenant hosted solution, so even security-conscious customers can sometimes opt for a hosted solution.
+Many customers prefer a hosted solution if their security policy allows it because it reduces overhead on SRE teams and infrastructure. Unleash offers a single-tenant hosted solution, so even security-conscious customers can sometimes opt for a hosted solution.
 
 If that is not an option, Unleash instances need to be managed by customer SRE / DevOps teams. If this is the direction you are going, you should plan for it in this phase of the project.
 
@@ -139,7 +145,7 @@ Other areas of system architecture to investigate during the planning phase are:
 -   How do we authenticate and manage user access & RBAC/roles?
 -   Do we have any Change Management policies we need to adhere to?
 -   Do we consume feature flag data, such as events, in any other systems downstream?
-    -   For example, Jira Cloud for issue management, Datadog for real-time telemetry, Slack or Microsoft Teams for notifications or Google Analytics for user interactions.
+    -   For example, Jira Cloud for issue management, Datadog for real-time telemetry, Slack or Microsoft Teams for notifications, or Google Analytics for user interactions.
 
 If you're using our [template](https://docs.google.com/spreadsheets/d/1MKc95v7Tc-9tznWMDVSy2vvmVJTvOFLRVZpx1QrL-_U/edit#gid=996250264), now fill in details about your project planning.
 

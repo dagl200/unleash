@@ -8,10 +8,13 @@ The project collaboration mode is an enterprise-only feature that was introduced
 
 :::
 
-A project's **collaboration mode** specifies **who can submit [change requests](change-requests.md)**. There are two collaboration modes:
-- [**open**](#open-collaboration-mode)
-- [**protected**](#protected-collaboration-mode)
-- [**private**](#private-collaboration-mode)
+A project's **collaboration mode** specifies **who can submit [change requests](change-requests.md)**. There are three collaboration modes:
+- [**Open** collaboration mode](#open-collaboration-mode)
+- [**Protected** collaboration mode](#protected-collaboration-mode)
+- [**Private** collaboration mode](#private-collaboration-mode)
+  - [Change requests](#change-requests)
+- [Project collaboration mode setting](#project-collaboration-mode-setting)
+- [Pre-existing projects](#pre-existing-projects)
 
 ## **Open** collaboration mode
 

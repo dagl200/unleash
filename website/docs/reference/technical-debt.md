@@ -46,4 +46,4 @@ The health rating updates once every hour, so there may be some lag if you have 
 
 ![A table of the flags in the current project with their health reports. The table has the following columns: name, last seen, created, expired, status, and report.](/img/togglelist.png)
 
-The flag list gives an overview over all of your flags and their status. In this list you can sort the flags by their name, last seen, created, expired, status and report. This will allow you to quickly get an overview over which flags may be worth deprecating and removing from the code.
+The flag list gives an overview of all of your flags and their status. In this list you can sort the flags by their name, last seen, created, expired, status and report. This will allow you to quickly get an overview over which flags may be worth deprecating and removing from the code.

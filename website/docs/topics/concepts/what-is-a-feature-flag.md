@@ -66,7 +66,7 @@ Because feature flags enable code execution, they require robust security and co
 
 - **Single Sign-On (SSO) Integration:** Integrating with SSO systems to streamline authentication and enhance security.
 
-- **Compliance:** Ensuring that the feature flagging system meets industry standards and regulations such as FedRAMP and SOC2. This is often greatly simplified when you run your feature flag solution in your own cloud or data center. Most [open-source feature flags](https://www.getunleash.io/pricing) providers allow you to self host.
+- **Compliance:** Ensuring that the feature flagging system meets industry standards and regulations such as FedRAMP and SOC2. This is often greatly simplified when you run your feature flag solution in your own cloud or data center. Most [open-source feature flags](https://www.getunleash.io/pricing) providers allow you to self-host.
 
 ### Implementing Feature Flags
 

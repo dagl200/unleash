@@ -12,20 +12,20 @@ Integrations were previously known as _addons_.
 
 :::
 
-Unleash integrations allows you to extend Unleash with new functionality and to connect to external applications.
+Unleash integrations allow you to extend Unleash with new functionality and to connect to external applications.
 
-Unleash has two types of integrations: Integrations that allow you to listen to changes in Unleash and trigger updates in other systems (for instance via webhooks or direct integrations) and integrations that communicate with Unleash (such as the Jira integrations).
+Unleash has two types of integrations: Integrations that allow you to listen to changes in Unleash and trigger updates in other systems (such as webhooks or direct integrations) and integrations that communicate with Unleash (such as the Jira integrations).
 
 ## Official integrations
 
 Unleash currently supports the following integrations out of the box:
 
 - [Datadog](datadog.md) - Allows Unleash to post Updates to Datadog when a feature flag is updated.
-- [Jira Cloud](jira-cloud-plugin-usage.md) - Allows you to create, view and manage Unleash feature flags directly from a Jira Cloud issue
+- [Jira Cloud](jira-cloud-plugin-usage.md) - Allows you to create, view, and manage Unleash feature flags directly from a Jira Cloud issue
 - [Jira Server](jira-server-plugin-usage.md) - Allows you to create and link Unleash feature flags directly from a Jira Server issue
 - [Microsoft Teams](teams.md) - Allows Unleash to post updates to Microsoft Teams.
 - [Slack App](slack-app.md) - The Unleash Slack App posts messages to the selected channels in your Slack workspace.
-- [Webhook](webhook.md) - A generic way to post messages from Unleash to third party services.
+- [Webhook](webhook.md) - A generic way to post messages from Unleash to third-party services.
 
 :::tip Missing an integration? Request it!
 
@@ -76,9 +76,9 @@ Viewing integration events requires the `ADMIN` permission.
 
 On the Integrations page, administrators will notice a new icon at the bottom right of each integration card. This icon indicates the status of the latest integration event:
 
- - **Green Check Mark**: The event was successful.
- - **Red Exclamation Mark**: The event failed.
- - **Yellow Exclamation Mark**: The event encountered some errors.
+ - **Green check mark**: the event was successful.
+ - **Red exclamation mark**: the event failed.
+ - **Yellow exclamation mark**: the event encountered some errors.
 
 Hovering over this icon provides more detailed information about the event. If the icon is not visible, it might be because the integration has not executed yet.
 

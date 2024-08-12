@@ -249,7 +249,8 @@ user will inherit most permissive permissions of all their groups in that projec
 
 :::info availability
 
-User group syncing is planned to be released in Unleash 4.18 and will be available for Enterprise customers.
+User group syncing is an enterprise feature available from Unleash 4.18 onwards.
+
 
 :::
 

@@ -3,20 +3,16 @@ title: How to schedule feature releases
 ---
 import ApiRequest from '@site/src/components/ApiRequest'
 
-:::info Placeholders
-Placeholders in the code samples below are delimited by angle brackets (i.e. `<placeholder-name>`). You will need to replace them with the values that are correct in _your_ situation for the code samples to run properly.
-:::
-
 There's a whole host of reasons why you may want to schedule the release of a feature, such as:
 - **to release a feature at a specific date and time** (for a product launch, for instance)
 - **to make a feature available only up until a specific moment** (for a contest cutoff, for instance)
-- **to make a feature available during a limited period** (for a 24 hour flash sale, for instance)
+- **to make a feature available during a limited period** (for a 24-hour flash sale, for instance)
 
 There are two distinct ways to do this, depending on which version of Unleash you are running:
 - If you're using version 4.9 or later of Unleash Pro or Enterprise, you can (and should) [use strategy constraints](#strategy-constraints)
 - Otherwise, [use custom activation strategies](#custom-activation-strategies)
 
-In this guide we'll schedule a feature for release at some point in time. The exact same logic applies if you want to make a feature available until some point in the future. Finally, if you want to only make a feature available during a limited time period, you can easily combine the two options.
+In this guide, we'll schedule a feature for release at some point in time. The exact same logic applies if you want to make a feature available until some point in the future. Finally, if you want to only make a feature available during a limited time period, you can easily combine the two options.
 
 ## Prerequisites
 

@@ -5,18 +5,18 @@ title: Webhook
 
 > This feature was introduced in _Unleash v3.11.0_.
 
-The Webhook Integration introduces a generic way to post messages from Unleash to third party services. Unleash allows you to define a webhook which listens for changes in Unleash and posts them to third party services.
+The Webhook integration introduces a generic way to post messages from Unleash to third-party services. Unleash allows you to define a webhook that listens for changes in Unleash and posts them to third-party services.
 
-The webhook will perform a single retry if the HTTP POST call fails (either a 50x or network error). Duplicate events may happen, and you should never assume events always comes in order.
+The Webhook integration performs a single retry if the HTTP POST call fails due to a 50x or a network issue. As a result, duplicate events may occur, and you should not assume that events always arrive in order.
 
-## Configuration {#configuration}
+## Configuration
 
-#### Events {#events}
+#### Events
 
 You can choose to trigger updates for the following events (we might add more event types in the future):
 
 - feature-created
-- feature-updated (*)
+- feature-updated (deprecated after Unleash v4.3)
 - feature-metadata-updated
 - feature-project-change
 - feature-archived
@@ -47,9 +47,7 @@ You can choose to trigger updates for the following events (we might add more ev
 - change-request-schedule-suspended
 - feature-potentially-stale-on
 
-> *) Deprecated, and will not be used after transition to environments in Unleash v4.3
-
-#### Parameters {#parameters}
+#### Parameters
 
 Unleash Webhook integration takes the following parameters.
 
@@ -57,7 +55,7 @@ Unleash Webhook integration takes the following parameters.
 
 **Content-Type** Used to set the content-type header used when unleash performs an HTTP POST to the defined endpoint.
 
-**Body template** Used to override the body template used by Unleash when performing the HTTP POST. You may format you message using a [Mustache template](https://mustache.github.io). You will have the [Unleash event format](/reference/api/legacy/unleash/admin/events) available in the rendering context.
+**Body template** Used to override the body template used by Unleash when performing the HTTP POST. You may format your message using a [Mustache template](https://mustache.github.io). You will have the [Unleash event format](/reference/api/legacy/unleash/admin/events) available in the rendering context.
 
 Example:
 
@@ -72,7 +70,7 @@ Example:
 
 If you don't specify anything Unleash will use the [Unleash event format](/reference/api/legacy/unleash/admin/events).
 
-#### Custom SSL certificates {#certificates}
+#### Custom SSL certificates
 
 If your webhook endpoint uses a custom SSL certificate,
 you will need to start Unleash with the `NODE_EXTRA_CA_CERTS` environment variable set.
