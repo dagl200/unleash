@@ -16,7 +16,7 @@ The Datadog integration performs a single retry if the HTTP POST against the Dat
 You can choose to trigger updates for the following events:
 
 - feature-created
-- feature-updated (deprecated after Unleash v4.3)
+- feature-updated (deprecated since Unleash v4.3)
 - feature-metadata-updated
 - feature-project-change
 - feature-archived

@@ -16,7 +16,7 @@ The Webhook integration performs a single retry if the HTTP POST call fails due 
 You can choose to trigger updates for the following events (we might add more event types in the future):
 
 - feature-created
-- feature-updated (deprecated after Unleash v4.3)
+- feature-updated (deprecated since Unleash v4.3)
 - feature-metadata-updated
 - feature-project-change
 - feature-archived

@@ -8,27 +8,21 @@ The project collaboration mode is an enterprise-only feature that was introduced
 
 :::
 
-A project's **collaboration mode** specifies **who can submit [change requests](change-requests.md)**. There are three collaboration modes:
-- [**Open** collaboration mode](#open-collaboration-mode)
-- [**Protected** collaboration mode](#protected-collaboration-mode)
-- [**Private** collaboration mode](#private-collaboration-mode)
-  - [Change requests](#change-requests)
-- [Project collaboration mode setting](#project-collaboration-mode-setting)
-- [Pre-existing projects](#pre-existing-projects)
+A project's collaboration mode specifies who can submit [change requests](change-requests.md). There are three collaboration modes: open, protected, and private.
 
-## **Open** collaboration mode
+## Open collaboration mode
 
-Anyone can submit change requests in an **open** project, regardless of their permissions within the project and globally. This is the default collaboration mode for projects.
+Anyone can submit change requests in an open project, regardless of their permissions within the project and globally. This is the default collaboration mode for projects.
 
 The open collaboration mode is the default in Unleash and is how all projects worked in Unleash before the introduction of collaboration modes.
 
-## **Protected** collaboration mode
+## Protected collaboration mode
 
-Only admins and project members can submit change requests in a **protected** project. Other users can not submit change requests.
+Only admins and project members can submit change requests in a protected project. Other users can not submit change requests.
 
-## **Private** collaboration mode
+##*Private collaboration mode
 
-Private collaboration mode renders the project invisible to all **viewers** who are not project members. This means that **viewers** cannot see the project in the project list, nor can they access the project's features or locate the project anywhere within Unleash.
+Private collaboration mode renders the project invisible to all viewers who are not project members. This means that viewers cannot see the project in the project list, nor can they access the project's features or locate the project anywhere within Unleash.
 
 **Editors**, **admins**, and users with **custom root roles** can still see private projects.
 

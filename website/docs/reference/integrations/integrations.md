@@ -14,7 +14,7 @@ Integrations were previously known as _addons_.
 
 Unleash integrations allow you to extend Unleash with new functionality and to connect to external applications.
 
-Unleash has two types of integrations: Integrations that allow you to listen to changes in Unleash and trigger updates in other systems (such as webhooks or direct integrations) and integrations that communicate with Unleash (such as the Jira integrations).
+Unleash has two types of integrations: integrations that allow you to listen to changes in Unleash and trigger updates in other systems (for example, webhooks or direct integrations) and integrations that communicate with Unleash (such as the Jira integrations).
 
 ## Official integrations
 
