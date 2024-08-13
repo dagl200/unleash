@@ -4,7 +4,7 @@ title: Impression Data
 
 :::info Availability
 
-The impression data feature was introduced in **Unleash 4.7**. It is available in the JavaScript-based proxy clients and in some server-side SDKs. Please refer to the [SDK compatibility table](../reference/sdks/index.md#server-side-sdk-compatibility-table) for an overview of server-side SDKs that support it.
+The impression data feature was introduced in **Unleash 4.7**. It is available in JavaScript-based proxy clients and some server-side SDKs. Please refer to the [SDK compatibility table](../reference/sdks/index.md#server-side-sdk-compatibility-table) for an overview of server-side SDKs that support it.
 
 :::
 
@@ -87,7 +87,7 @@ You can enable impression data via the impression data flag in the admin UI's fl
 
 ## Example setup
 
-The exact setup will vary depending on your [client SDK](../reference/sdks/index.md). The below example configures the [Unleash Proxy client../reference/sdks/javascript-browser) to listen for impression events and log them to the console. If "my-feature-flag" is configured to emit impression data, then it will trigger an impression event as soon as Unleash is ready.
+The exact setup varies depending on your [client SDK](../reference/sdks/index.md). The below example configures the [Unleash Proxy client../reference/sdks/javascript-browser) to listen for impression events and log them to the console. If "my-feature-flag" is configured to emit impression data, then it will trigger an impression event as soon as Unleash is ready.
 
 ```js
 const unleash = new UnleashClient({
@@ -103,7 +103,7 @@ unleash.on('ready', () => {
 });
 
 unleash.on('impression', (event) => {
-  // Capture the event here and pass it to internal data lake or analytics provider
+  // Capture the event here and pass it to an internal data lake or analytics provider
   console.log(event);
 });
 ```
